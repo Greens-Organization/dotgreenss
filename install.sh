@@ -5,7 +5,7 @@ set -P
 OS=""
 VER=""
 PACKAGES_MISSING=""
-PACKAGES=("neofetch" "tmux" "htop" "fish" "curl")
+PACKAGES=("neofetch" "tmux" "htop" "fish" "curl" "git")
 NEOVIM_STABLE="https://github.com/neovim/neovim/releases/download/stable/nvim.appimage"
 NEOVIM_IMAGE="nvim.appimage"
 
@@ -30,6 +30,8 @@ configuration() {
     mv `pwd`/.config/htop ~/.config/
     mv `pwd`/.config/nvim ~/.config/
     mv `pwd`/.config/tmux ~/.config/
+    echo ">>> INSTALL TMUX PLUGIN MANAGER <<<"
+    git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
     mv `pwd`/.config/fish ~/.config/
 }
 
