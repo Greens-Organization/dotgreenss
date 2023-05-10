@@ -20,13 +20,13 @@ check_package() {
 }
 
 configuration() {
-    echo ">>> Backuping your folders <<<"
+    echo ">>> BACKUPING YOUR CONFIGS <<<"
     mv ~/.config/htop ~/.config/htop.bak &> /dev/null
     mv ~/.config/nvim ~/.config/nvim.bak &> /dev/null
     mv ~/.config/tmux ~/.config/tmux.bak &> /dev/null
     mv ~/.config/fish ~/.config/fish.bak &> /dev/null
 
-    echo ">>> Move configurations to ~/.config <<<"
+    echo ">>> MOVE FOLDERS TO ~/.config <<<"
     mv `pwd`/.config/htop ~/.config/
     mv `pwd`/.config/nvim ~/.config/
     mv `pwd`/.config/tmux ~/.config/
