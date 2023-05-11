@@ -5,7 +5,7 @@ set -P
 OS=""
 VER=""
 PACKAGES_MISSING=""
-PACKAGES=("neofetch" "tmux" "htop" "fish" "curl" "git")
+PACKAGES=("neofetch" "tmux" "htop" "fish" "curl" "git", "sqlite3")
 NEOVIM_STABLE="https://github.com/neovim/neovim/releases/download/stable/nvim.appimage"
 NEOVIM_IMAGE="nvim.appimage"
 
