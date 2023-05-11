@@ -8,11 +8,12 @@ PACKAGES_MISSING=""
 PACKAGES=("neofetch" "tmux" "htop" "fish" "curl" "git", "sqlite3")
 NEOVIM_STABLE="https://github.com/neovim/neovim/releases/download/stable/nvim.appimage"
 NEOVIM_IMAGE="nvim.appimage"
+TMP_NVIM="/tmp/nvim"
 
 check_package() {
     pkgs=()
     for package in $@; do
-        if ! command -v  &> /dev/null; then
+        if ! command -v $package &> /dev/null; then
             pkgs+=("$i")
         fi
     done
@@ -30,15 +31,27 @@ configuration() {
     mv `pwd`/.config/htop ~/.config/
     mv `pwd`/.config/nvim ~/.config/
     mv `pwd`/.config/tmux ~/.config/
-    echo ">>> INSTALL TMUX PLUGIN MANAGER <<<"
-    git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
     mv `pwd`/.config/fish ~/.config/
 }
 
 install_neovim_from_github() {
     echo ">>> NEOVIM INSTALL FROM GITHUB <<<"
-    curl -fsSL $NEOVIM_STABLE -o $IMAGE_NEOVIM
-    echo "WIP"
+    mkdir $TMP_NVIM
+    curl -fsSL $NEOVIM_STABLE -o $TMP_NVIM/$IMAGE_NEOVIM
+    cd /tmp/nvim
+    chmod u+x nvim.appimage
+    ./nvim.appimage --appimage-extract &> /dev/null
+
+    sudo mv ./squashfs-root/usr/bin/nvim          /usr/bin/
+    sudo mv ./squashfs-root/usr/man/man1/nvim.1   /usr/share/man/man1/nvim.1.gz
+    sudo mv ./squashfs-root/usr/lib/nvim          /usr/lib/
+    sudo mv ./squashfs-root/usr/share/nvim        /usr/share/nvim
+
+    if command -v nvim &> /dev/null; then
+        echo ">>> NEOVIM STABLE VERSION INSTALLED WITH SUCCESSFULLY <<<"
+    else
+        echo ">>> ERROR INSTALLING NEOVIM STABLE VERSION <<<"
+    fi
 }
 
 if [ -f /etc/os-release ]; then
@@ -70,6 +83,7 @@ if [[ ${ID^^} -eq "DEBIAN" ]]; then
     PACKAGES_MISSING=$(check_package ${PACKAGES[@]})
     sudo apt install ${PACKAGES_MISSING[@]} -y
 
+    install_neovim_from_github
     configuration
 else
     echo ">>> ${OS^^} IS NOT IMPLEMENTED <<<"
