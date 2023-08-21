@@ -13,6 +13,7 @@
 
 - curl
 - fish
+- tmux ([config](/.config/tmux/README.md))
 - htop
 - neovim (WIP)
 - neofetch
