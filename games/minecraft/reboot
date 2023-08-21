@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+vanilla="server.jar"
+minecraft_folder="$HOME/minecraft"
+minecraft_vanilla="java -Xms1024m -Xmx14336m -jar "$minecraft_folder/$vanilla" nogui"
+minecraft_forge="./run.sh"
+while true ; do
+  bash $minecraft_forge
+  echo "Se você quiser parar completamente o processo do servidor agora, pressione Ctrl + C antes do tempo acabar!"
+  echo "Iniciando em:"
+  for i in {3,0} ; do
+    echo "$i"
+    sleep 1
+  done
+  echo "Iniciando agora!"
+done
