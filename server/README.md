@@ -273,5 +273,5 @@ npm -v
 ```
 
 **Bônus** Se você instalou o Node bem provavel que vai usar o PM2 em conjunto
-com ele, então [clique aqui](server/pm2) para ver o passo a passo da
+com ele, então [clique aqui](server/pm2/README.md) para ver o passo a passo da
 instalação e configuração.
