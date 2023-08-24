@@ -235,42 +235,43 @@ Por fim, vamos adicionar a versão do JAVA_HOME, para isso, entre dentro da
 echo ". ~/.asdf/plugins/java/set-java-home.bash" >> ~/.bashrc
 ```
 
-#### Node
+curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 
-Para esse exemplo, vamos instalar o [Node](https://nodejs.org/en) utilizando o
-asdf. Primeiro vamos instalar o plugin do node no asdf:
+## Instalando [Node](https://nodejs.org/en) mais recente
 
-```
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-```
+Primeiro de tudo, caso não tenha instalado o `curl` este é o momento, vamos
+precisar dele para instalar o nodejs mais recente.
 
-Para listar as versões disponivel para instalação, use o comando:
+Instando o curl, basta executar este comando: O parametro `-y` é p
 
-```
-asdf list all nodejs
+```bash
+sudo apt install curl -y
 ```
 
-Agora, vamos escolher uma versão, a versão mais atual no momento é 20.5.1, está
-será a escolhida:
+Caso já tenha instalado curl Você pode configurar o repositório NodeSource para
+a versão desejada do Node.js. Se você quiser a versão mais recente, use:
 
-```
-asdf install nodejs 20.5.1
-```
-
-Após isso, vamos disponibilizar globalmente essa versão no sistema:
-
-```
-asdf global nodejs 20.5.1
+```bash
+curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 ```
 
-Para testar se está tudo certo, vamos usar o comando:
+Note que "current" geralmente se refere à versão mais recente. Se em algum
+momento você desejar uma versão específica, pode substituir setup_current.x pelo
+número da versão desejada, por exemplo: setup_14.x para Node.js 14.
 
+Após adicionar o repositório, você pode instalar o Node.js com:
+
+```bash
+sudo apt install -y nodejs
 ```
-node --version
+
+Agora só verificar se está tudo certo, basta executar este comandos:
+
+```bash
+node -v
+npm -v
 ```
 
-Se tudo estiver correto deve apresentar a versão do node instalada.
-
-Se você instalou o Node bem provavel que vai usar o PM2 em conjunto com ele,
-então [clique aqui](/pm2/README.md) para ver o passo a passo da instalação e
-configuração.
+**Bônus** Se você instalou o Node bem provavel que vai usar o PM2 em conjunto
+com ele, então [clique aqui](/pm2/README.md) para ver o passo a passo da
+instalação e configuração.
