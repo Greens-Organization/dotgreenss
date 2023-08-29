@@ -28,7 +28,7 @@ cat ~/.ssh/id_rsa.pub | ssh usuario@endereco_do_servidor "mkdir -p ~/.ssh && chm
 arquivo de configuração do ssh:
 
 ```bash
-vim /etc/ssh/sshd_config
+sudo nano /etc/ssh/sshd_config
 ```
 
 No arquivo (`/etc/ssh/sshd_config`) você deve alterar essas opções, para exemplo
