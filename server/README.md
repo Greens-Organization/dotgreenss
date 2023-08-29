@@ -125,6 +125,9 @@ Após isso, reinicie a máquina:
 sudo reboot
 ```
 
+A partir deste ponto é altamento recomendado a configuração SSH com chave
+publica, para isso base seguir o guia [clicando aqui](ssh/README.md)
+
 ## 4. Instalando Pacotes Essenciais
 
 1. Utilitários básicos
