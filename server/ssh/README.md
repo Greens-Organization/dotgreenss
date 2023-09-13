@@ -11,7 +11,7 @@ gere um usando o seguinte comando no computador cliente (não no servidor):
 
 ```bash
 # Commmand  | Tipo da chave | Comentário | Local onde ficara salvo a chave
-ssh-keygen -t ed25519 -C "contact@matheuspa.com" -f "C:\Users\matma\.ssh\develop-server"
+ssh-keygen -t ed25519 -C "contact@email.com" -f "/home/user/.ssh/file_name"
 ```
 
 Isso criará duas chaves: uma chave privada (`~/.ssh/id_rsa`) e uma chave pública
