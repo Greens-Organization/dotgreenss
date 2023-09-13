@@ -10,7 +10,8 @@ como configurar a autenticação por chave SSH:
 gere um usando o seguinte comando no computador cliente (não no servidor):
 
 ```bash
-ssh-keygen
+# Commmand  | Tipo da chave | Comentário | Local onde ficara salvo a chave
+ssh-keygen -t ed25519 -C "contact@matheuspa.com" -f "C:\Users\matma\.ssh\develop-server"
 ```
 
 Isso criará duas chaves: uma chave privada (`~/.ssh/id_rsa`) e uma chave pública
