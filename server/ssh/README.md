@@ -63,6 +63,8 @@ no servidor e defina:
 
 ```shell
 PasswordAuthentication no
+
+PermitRootLogin no
 ```
 
 Depois de fazer essa alteração, reinicie o serviço SSH:

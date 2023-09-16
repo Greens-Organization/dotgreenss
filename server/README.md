@@ -1,5 +1,7 @@
 # Servidor Greens
 
+OS: Debian
+
 Por padrão vamos sempre usar o Debian Server para nosso servidor (No momento
 estamos trabalhando somente no debian 11 na data: 19 de Agosto de 2023). Porém,
 futuramente vamos migrar para as versões mais novas do Debian 12. Só usamos
