@@ -244,6 +244,8 @@ curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 
 ## Instalando [Node](https://nodejs.org/en) mais recente
 
+Recomendamos que siga o passo a passo descrito na própria documentação do Node, [aqui](https://github.com/nodesource/distributions#debian-versions).
+
 Primeiro de tudo, caso não tenha instalado o `curl` este é o momento, vamos
 precisar dele para instalar o nodejs mais recente.
 
