@@ -29,10 +29,11 @@ su - username
 
 
 ## Instalando o node
+Recomendado para utilizar a versão mais atualizada, verificar a pagina oficial do nodejs. [Acesse aqui](https://nodejs.org/en/download/package-manager)
 Seguir o passo a passo
 ```bash
-sudo yum install https://rpm.nodesource.com/pub_20.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y
-sudo yum install nodejs -y --setopt=nodesource-nodejs.module_hotfixes=1
+sudo dnf module list nodejs
+sudo dnf module install nodejs:18/common
 ```
 
 
