@@ -1,11 +1,12 @@
-Como configurar o candy hospedado em vm em debian, e cloudflare para dominio
+# Dynamic DNS
+## Como configurar DNS Dinamico com Cloudflare
+Fizemos um API justamente para esta finalidade pode verificar mais sobre ela [aqui](https://github.com/Greens-Organization/rockhopper-dynamicdns).
+Mas caso queria algo mais simples pode seguir o passos abaixos.
 
-Doc da API do Cloudflare:
-https://developers.cloudflare.com/api/operations/dns-records-for-a-zone-update-dns-record
-
-Script para alterar automaticamente IP do DNS:
-
-```bash
+## Configurar shell script para alterar o DNS
+Crie um arquivo com este conteudo abaixo para realizar o processo de mudança, lembre-se de alterar as credenciais para sua credenciais.
+_Arquivo:_ `change-dns.sh`
+```sh
 #!/bin/bash
 
 # Sua chave de API Cloudflare
@@ -31,11 +32,17 @@ curl -X PUT "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records/$RE
 
 ```
 
-
-Configurando no crontab
-
+### Configurando no crontab
+Basta acessar as configurações do contab com este comando:
+```bash
+crontab  -e
+```
+E adicionar está linha ao arquivo cron:
+```sh
 0 * * * * /home/matheus/.myscripts/change-dns.sh
+```
 
-
+## Doc da API do Cloudflare:
+https://developers.cloudflare.com/api/operations/dns-records-for-a-zone-update-dns-record
 
 
